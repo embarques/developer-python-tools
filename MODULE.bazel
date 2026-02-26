@@ -1,0 +1,10 @@
+module(name = "developer_python_tools", version = "0.1.0")
+
+bazel_dep(name = "rules_python", version = "0.34.0")
+
+pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
+pip.parse(
+    hub_name = "py_deps",
+    requirements_lock = "//:requirements_lock.txt",
+)
+use_repo(pip, "py_deps")
