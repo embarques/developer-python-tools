@@ -5,4 +5,5 @@ py_binary(
     srcs = ["app.py"],
     main = "app.py",
     deps = ["@py_deps//click"],
+    visibility = ["//visibility:public"],
 )
